@@ -3,10 +3,12 @@ Browser("Advantage Shopping").Page("Advantage Shopping").WebElement("Beats Studi
 'Browser("Advantage Shopping").Page("Advantage Shopping").WebElement("Score").WaitProperty "innerhtml", 9.3, 10000
 foo = Browser("Advantage Shopping").Page("Advantage Shopping").WebElement("Score").Exist(20)
 currentScore = cDbl(Browser("Advantage Shopping").Page("Advantage Shopping").WebElement("Score").GetROProperty("innerhtml"))
-If currentScore >= 9.0 Then
-Reporter.ReportEvent micPass, "ScoreOK", "Great score for this product"
+Const desiredScore = 9.5
+print currentScore &"|"& desiredScore &"|"&currentScore > desiredScore
+If currentScore >= desiredScore Then
+Reporter.ReportEvent micPass, "ScoreOK", "Score exceeded the desired value of "& desiredScore
 Else
-Reporter.ReportEvent micFail, "ScoreNotOk", "This product does not have the expected score"
+Reporter.ReportEvent micFail, "ScoreNotOk", "This product does not have the expected score. Found "& currentScore & " and need "& desiredScore
 End If
 Browser("Advantage Shopping").Page("Advantage Shopping").WebButton("save_to_cart").Click @@ hightlight id_;_Browser("Advantage Shopping").Page("Advantage Shopping").WebButton("save to cart")_;_script infofile_;_ZIP::ssf8.xml_;_
 Browser("Advantage Shopping").Page("Advantage Shopping").Link("ShoppingCart").Click @@ hightlight id_;_Browser("Advantage Shopping").Page("Advantage Shopping").Link("ShoppingCart")_;_script infofile_;_ZIP::ssf9.xml_;_
