@@ -1,2 +1,2 @@
-﻿msgbox "Hello World"
+﻿msgbox Parameter("MyActionParam1")
 Print "Hello World"
